@@ -19,6 +19,8 @@ export default {
     return {
       cards: [
         { title: 'Could contain anything', id: 123 },
+        { title: 'Endless possibilities', id: 456 },
+        { title: 'Endless possibilities', id: 456 },
         { title: 'Endless possibilities', id: 456 }
       ]
     }

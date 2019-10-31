@@ -32,7 +32,9 @@ export default {
         'https://source.unsplash.com/400x400/?trees,water',
         'https://source.unsplash.com/400x400/?snow',
         'https://source.unsplash.com/400x400/?ice',
-        'https://source.unsplash.com/400x400/?lava'
+        'https://source.unsplash.com/400x400/?sea',
+        'https://source.unsplash.com/400x400/?bike',
+        'https://source.unsplash.com/400x400/?road'
       ]
     }
   },
@@ -57,22 +59,36 @@ export default {
 
 <style scoped>
 .list-container {
-  margin: auto;
-  padding: 0;
-  box-sizing: border-box;
   max-width: 1200px;
+  margin: auto;
 }
 .image-list {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 20px;
-  margin: auto;
-  padding: 0;
+  padding: 2rem;
 }
 
-img {
+.image-list img {
   width: 100%;
+  height: 100%;
   min-width: 320px;
+  box-shadow: 3px 3px 1px #ccc;
+  -webkit-box-shadow: 3px 3px 1px #ccc;
+  -moz-box-shadow: 3px 3px 1px #ccc;
+}
+
+.image-list li {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+.image-list li:hover {
+  transform: scale(1.05);
+  transition: transform 0.5s ease;
 }
 </style>

@@ -13,6 +13,12 @@
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -112,6 +118,7 @@ ul {
   transition: all 1s ease;
 }
 
+/* Comes with transition-groups */
 .slide-up-move {
   transition: transform 0.8s ease-in;
 }
