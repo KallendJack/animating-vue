@@ -13,10 +13,8 @@
     <input type="text" v-model="newImage" placeholder="Name" />
     <button @click="addImage">Add Image</button>
     <button @click="sortImages">Sort</button>
-    <transition-group name="slide-up" tag="ul" appear class="image-list">
-      <li v-for="image in images" :key="image">
-        <img :src="image" />
-      </li>
+    <transition-group name="slide-up" tag="ul" appear class="gallery">
+      <img v-for="image in images" :key="image" :src="image" />
     </transition-group>
   </div>
 </template>
@@ -32,7 +30,7 @@ export default {
         'https://source.unsplash.com/400x400/?trees,water',
         'https://source.unsplash.com/400x400/?snow',
         'https://source.unsplash.com/400x400/?ice',
-        'https://source.unsplash.com/400x400/?sea',
+        'https://source.unsplash.com/400x400/?circus',
         'https://source.unsplash.com/400x400/?bike',
         'https://source.unsplash.com/400x400/?road'
       ]
@@ -57,38 +55,42 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .list-container {
   max-width: 1200px;
   margin: auto;
 }
-.image-list {
+
+.gallery {
   width: 100%;
+  height: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 20px;
+  align-items: center;
   padding: 2rem;
-}
 
-.image-list img {
-  width: 100%;
-  height: 100%;
-  min-width: 320px;
-  box-shadow: 3px 3px 1px #ccc;
-  -webkit-box-shadow: 3px 3px 1px #ccc;
-  -moz-box-shadow: 3px 3px 1px #ccc;
-}
+  & img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 320px;
+    min-width: 320px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
 
-.image-list li {
-  position: relative;
-  z-index: 1;
-  height: 100%;
-  cursor: pointer;
-  transition: transform 0.5s ease;
-}
+    &:hover {
+      transform: scale(1.05);
+      transition: transform 0.5s ease;
+    }
 
-.image-list li:hover {
-  transform: scale(1.05);
-  transition: transform 0.5s ease;
+    @media screen and (min-width: 1065px) {
+      &:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+  }
 }
 </style>
