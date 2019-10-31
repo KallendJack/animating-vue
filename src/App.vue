@@ -109,7 +109,7 @@ ul {
 }
 
 .slide-up-enter-active {
-  transition: all 0.2s ease;
+  transition: all 1s ease;
 }
 
 .slide-up-move {
