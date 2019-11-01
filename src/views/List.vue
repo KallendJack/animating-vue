@@ -20,20 +20,21 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
+  mounted() {
+    axios.get('https://jsonplaceholder.typicode.com/photos?_limit=30').then(response => {
+      response.data.forEach(image => {
+        this.images.push(image.url)
+      })
+    })
+  },
   data() {
     return {
       newContact: '',
       contacts: ['Beau Thabeast', 'Cindy Rella', 'Alice Vunderlind'],
       newImage: '',
-      images: [
-        'https://source.unsplash.com/400x400/?trees,water',
-        'https://source.unsplash.com/400x400/?snow',
-        'https://source.unsplash.com/400x400/?ice',
-        'https://source.unsplash.com/400x400/?circus',
-        'https://source.unsplash.com/400x400/?bike',
-        'https://source.unsplash.com/400x400/?road'
-      ]
+      images: []
     }
   },
   methods: {
@@ -66,6 +67,7 @@ export default {
   height: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-auto-flow: dense;
   grid-gap: 20px;
   align-items: center;
   padding: 2rem;
@@ -85,8 +87,8 @@ export default {
       transition: transform 0.5s ease;
     }
 
-    @media screen and (min-width: 1065px) {
-      &:nth-child(4) {
+    @media screen and (min-width: 724px) {
+      &:nth-child(4n + 4) {
         grid-column: span 2;
         grid-row: span 2;
       }
