@@ -84,7 +84,6 @@ export default {
     cursor: pointer;
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease;
-    background-color: transparent;
 
     &:hover {
       z-index: 1;
@@ -92,16 +91,21 @@ export default {
       transition: transform 0.5s ease;
     }
 
-    &:hover::before {
+    &::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0);
       z-index: 1;
-      transition: all 1s ease;
+      transition: background-color 0.5s ease;
+    }
+
+    &:hover::before {
+      background-color: rgba(0, 0, 0, 0.5);
+      transition: background-color 0.5s ease;
     }
 
     & img {
