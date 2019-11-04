@@ -11,14 +11,40 @@
         </p>
       </div>
     </transition>
+
+    <vue-glide v-if="!isLoading" :perView="1">
+      <vue-glide-slide v-for="image in images" :key="image">
+        <img :src="image">
+      </vue-glide-slide>
+    </vue-glide>
   </div>
 </template>
 
 <script>
+import { Glide, GlideSlide } from 'vue-glide-js'
+import axios from 'axios'
 export default {
+  mounted() {
+    axios
+      .get(
+        'https://api.unsplash.com/photos/?client_id=365810b92388cb95de07bbdad14e6e3a3515a8ce0853219faed2acccd301f609'
+      )
+      .then(response => {
+        response.data.forEach(image => {
+          this.images.push(image.urls.regular)
+          this.isLoading = false
+        })
+      })
+  },
+  components: {
+      [Glide.name]: Glide,
+      [GlideSlide.name]: GlideSlide
+    },
   data() {
     return {
-      isOpen: false
+      isOpen: false,
+      images: [],
+      isLoading: true
     }
   },
   methods: {
@@ -28,3 +54,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  img {
+    width: 100%;
+    height: 100%;
+    max-height: 800px;
+    object-fit: cover;
+  }
+</style>
