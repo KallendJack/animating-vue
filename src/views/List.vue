@@ -83,12 +83,12 @@ export default {
     height: 100%;
     cursor: pointer;
     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 
     &:hover {
       z-index: 1;
       transform: scale(1.05);
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
 
     &::before {
@@ -100,12 +100,12 @@ export default {
       height: 100%;
       background-color: rgba(0, 0, 0, 0);
       z-index: 1;
-      transition: background-color 0.5s ease;
+      transition: background-color 0.3s ease;
     }
 
     &:hover::before {
       background-color: rgba(0, 0, 0, 0.5);
-      transition: background-color 0.5s ease;
+      transition: background-color 0.3s ease;
     }
 
     & img {
