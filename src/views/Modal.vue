@@ -12,7 +12,7 @@
       </div>
     </transition>
 
-    <vue-glide v-if="!isLoading" :perView="1">
+    <vue-glide v-if="!isLoading" :perView="3">
       <vue-glide-slide v-for="image in images" :key="image">
         <img :src="image">
       </vue-glide-slide>
@@ -59,7 +59,7 @@ export default {
   img {
     width: 100%;
     height: 100%;
-    max-height: 800px;
+    max-height: 400px;
     object-fit: cover;
   }
 </style>
