@@ -56,12 +56,13 @@ input {
 }
 
 #nav {
+  background-color: #586BA4;
   padding: 30px;
 }
 
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: white;
 }
 
 #nav a.router-link-exact-active {
