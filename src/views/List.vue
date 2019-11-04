@@ -64,7 +64,7 @@ export default {
 
 <style lang="scss" scoped>
 .list-container {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: auto;
 }
 
